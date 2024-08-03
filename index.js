@@ -1,35 +1,44 @@
 // This one will be a little tricky. So check out this overview first: https://www.youtube.com/watch?v=sJ-c3BA-Ypo
 
-// 1. Create a variable to store the singleton instance of the bank branch. "bankBranchInstance"
-const branchInstancech = {
-    
+// 1. Create a variable to store the singleton instance of the bank branch. "bankbranchInstance"
+const branchInstance = {
     name: "Absa",
     code: 7955 ,
     address: "",
     number: "(012-0534465)"
 };
-console.log("Bank branch: " + branchInstancech.name);
-console.log("Branch code: " + branchInstancech.code);
-console.log("Branch address: " + branchInstancech.address);
-console.log("Branch number: " + branchInstancech.number);
+
+console.log("Bank branch: " + branchInstance.name);
+console.log("Branch code: " + branchInstance.code);
+console.log("Branch address: " + branchInstance.address);
+console.log("Branch number: " + branchInstance.number);
+
+
+
 // 2. Define a class called `BankBranch` for managing branch information.
-class bankBranch {
+class BankBranch {
+    // 3. In the `BankBranch` class:
+    constructor(branchInfo) {
+    //- Create a constructor that takes `branchInfo` as a parameter.
+    if (BankBranch.branchInstance == null) {
+       
+        this.branchInstance = [];
+      BankBranch.branchInstance = this;   
+    } 
+    return BankBranch.branchInstance
 
-// 3. In the `BankBranch` class:
-constructor(name, code, address, number){
-
-    
-//    - Create a constructor that takes `branchInfo` as a parameter.
-
-//    - Inside the constructor, check if the `bankBranchInstance` variable is null (indicating no instance exists).
-//    - If `bankBranchInstance` is null, create a new instance with the provided `branchInfo` and assign it to `bankBranchInstance`.
-//    - Return the `bankBranchInstance` whether it's newly created or existing.
-    }
-    
-
+    //    - Inside the constructor, check if the `bankbranchInstance` variable is null (indicating no instance exists).
+    //    - If `bankbranchInstance` is null, create a new instance with the provided `branchInfo` and assign it to `bankbranchInstance`.
+    //- Return the `bankbranchInstance` whether it's newly created or existing.
+    }; 
 };
-this.name =  branch;
-console.log(this);
+
+
+
+
+
+
+
 // 4. Add methods to the `BankBranch` class for managing branch-related information. For example, you can add a method like `getBranchInfo` to retrieve branch details.
 
 // 5. In the usage section:
@@ -46,8 +55,8 @@ console.log(this);
 
 // - We define a `BankBranch` class that represents bank branch information.
 // - We use the Singleton pattern to ensure that there is only one instance of the `BankBranch` class.
-// - The `bankBranchInstance` variable is used to hold the single instance of the class.
-// - When a new `BankBranch` instance is created, it checks if `bankBranchInstance` already exists.
+// - The `bankbranchInstance` variable is used to hold the single instance of the class.
+// - When a new `BankBranch` instance is created, it checks if `bankbranchInstance` already exists.
 //   If it does, it returns the existing instance; otherwise, it creates a new one.
 // - The `getBranchInfo` method allows us to retrieve the branch information from the singleton instance.
 // - We demonstrate the Singleton pattern by creating two instances (`branchA` and `branchB`) and show that they both point to the same instance,
