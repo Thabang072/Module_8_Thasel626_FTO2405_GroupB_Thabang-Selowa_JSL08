@@ -18,28 +18,23 @@ console.log("Branch number: " + branchInstance.number);
 // 2. Define a class called `BankBranch` for managing branch information.
 class BankBranch {
     // 3. In the `BankBranch` class:
-    constructor(branchInfo) {
     //- Create a constructor that takes `branchInfo` as a parameter.
-    if (BankBranch.branchInstance == null) {
-       
-        this.branchInstance = [];
-      BankBranch.branchInstance = this;   
-    } 
-    return BankBranch.branchInstance
-
+    constructor(branchInfo) {
     //    - Inside the constructor, check if the `bankbranchInstance` variable is null (indicating no instance exists).
-    //    - If `bankbranchInstance` is null, create a new instance with the provided `branchInfo` and assign it to `bankbranchInstance`.
-    //- Return the `bankbranchInstance` whether it's newly created or existing.
-    }; 
+    if (branchInstance === null) {
+       //- If `bankbranchInstance` is null, create a new instance with the provided `branchInfo` and assign it to `bankbranchInstance`.
+        this.branchInfo = branchInfo; // instance of branchInfo
+        branchInstance = this; //assign branchInfo to `bankbranchInstance`.
+    } else {
+        //- Return the `bankbranchInstance` whether it's newly created or existing.
+        return branchInstance;
+    }};
+    
+    // 4. Add methods to the `BankBranch` class for managing branch-related information. For example, you can add a method like `getBranchInfo` to retrieve branch details.
+    getBranchInfo() {
+        return this.branchInfo;
+    }
 };
-
-
-
-
-
-
-
-// 4. Add methods to the `BankBranch` class for managing branch-related information. For example, you can add a method like `getBranchInfo` to retrieve branch details.
 
 // 5. In the usage section:
 //    - Create instances of the `BankBranch` class, such as `branchA` and `branchB`, with different branch information.
